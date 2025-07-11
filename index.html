@@ -12,7 +12,7 @@
   </video>
 
   <div class="overlay">
-    <h1 id="pageTitle">Welcome to Planet ARKONOX</h1>
+    <h1 id="pageTitle">WELCOME TO PLANET ARKONOX</h1>
     <input type="text" id="knightName" placeholder="Enter Knight Name">
     <input type="text" id="knightCode" placeholder="Enter Knight Code">
     <!-- ✅ Error message placed ABOVE the button and hidden by default -->
@@ -22,23 +22,5 @@
 
   <audio id="clickSound" src="assets/click.mp3" preload="auto"></audio>
   <script src="js/script.js"></script>
-<script>
-  document.getElementById("enterBtn").addEventListener("click", function () {
-    const name = document.getElementById("knightName").value.trim();
-    const code = document.getElementById("knightCode").value.trim();
-
-    if (!name || !code) {
-      alert("Enter both name and code.");
-      return;
-    }
-
-    // Save to localStorage
-    localStorage.setItem("knightName", name);
-    localStorage.setItem("knightCode", code);
-
-    // Go to dashboard
-    window.location.href = "dashboard.html";
-  });
-</script>
 </body>
 </html>

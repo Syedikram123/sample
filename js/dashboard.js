@@ -25,12 +25,29 @@ if (
 document.addEventListener("DOMContentLoaded", () => {
   const nameDisplay = document.getElementById("knightNameDisplay");
   if (nameDisplay) {
-    nameDisplay.innerText = `Welcome, ${capitalize(knightName)}`;
+    nameDisplay.innerText = `${capitalize(knightName)}`;
   }
 
   // ✅ Load saved progress if exists
   const progressKey = `progress_${knightName}`;
   const savedProgress = localStorage.getItem(progressKey);
+  const defaultProgress = {
+  currentMoon: "Moon 1 - Awakening",
+  totalXP: 0,
+  streak: 0,
+  notes: [],
+  sword: "Basic Blade"
+};
+const knightUI = {
+  apexion: "🔥 Fire style",
+  luminari: "🌟 Light style",
+  kairos: "⏳ Time style",
+  spectra: "🌈 Prism style"
+};
+
+const style = knightUI[knightName.toLowerCase()];
+document.getElementById("welcomeText").innerText += ` | ${style}`;
+
 
   if (savedProgress) {
     const data = JSON.parse(savedProgress);
@@ -51,4 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // ✅ Helper: Capitalize name
 function capitalize(name) {
   return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
+function viewStats() {
+  const progress = JSON.parse(localStorage.getItem(`progress_${knightName}`));
+  alert(`XP: ${progress.totalXP} | Moon: ${progress.currentMoon}`);
 }

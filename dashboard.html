@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+  const knightName = localStorage.getItem("knightName");
+  const knightCode = localStorage.getItem("knightCode");
+
+  const allowedKnights = {
+    apexion: "175025",
+    velox: "2275025",
+    luminari: "1275025",
+    kairos: "1175025",
+    spectra: "1975025"
+  };
+
+  if (
+    !knightName ||
+    !knightCode ||
+    !allowedKnights[knightName.toLowerCase()] ||
+    allowedKnights[knightName.toLowerCase()] !== knightCode
+  ) {
+    localStorage.clear(); // wipe invalid data
+    window.location.href = "index.html";
+  }
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arkonox Dashboard</title>
@@ -33,6 +56,8 @@
     <div class="card">⚔️ Sword Chest</div>
     <div class="card">🎮 Quiz Game</div>
     <div class="card">🤖 AI Chat</div>
+    <div class="card" onclick="viewStats()">🏆 Your Progress</div>
+
   </div>
 
   <div class="bottom-nav">
