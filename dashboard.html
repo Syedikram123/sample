@@ -1,3 +1,11 @@
+// 🛡️ Security Check
+const knightName = localStorage.getItem('knightName');
+const knightCode = localStorage.getItem('knightCode');
+
+if (!knightName || !knightCode) {
+  window.location.href = "index.html"; // ⛔ Kick back to login
+}
+
 <!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +50,7 @@
   <!-- 🧭 Bottom Navigation -->
   <nav class="bottom-nav">
     <div class="nav-item">🏠 Home</div>
-    <div class="nav-item">📈 Stats</div>
+    <div class="nav-item">⚔️ Sword</div>
     <div class="nav-item">📝 Notes</div>
     <div class="nav-item">🎮 Games</div>
   </nav>
