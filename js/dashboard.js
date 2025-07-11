@@ -73,6 +73,7 @@ document.getElementById("welcomeText").innerText += ` | ${style}`;
 function capitalize(name) {
   return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 }
+console.log("KnightName in localStorage:", localStorage.getItem("knightName"));
 function viewStats() {
   const progress = JSON.parse(localStorage.getItem(`progress_${knightName}`));
   alert(`XP: ${progress.totalXP} | Moon: ${progress.currentMoon}`);
