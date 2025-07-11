@@ -1,60 +1,37 @@
-// 🛡️ Security Check
-const knightName = localStorage.getItem('knightName');
-const knightCode = localStorage.getItem('knightCode');
-
-if (!knightName || !knightCode) {
-  window.location.href = "index.html"; // ⛔ Kick back to login
-}
-
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Knight Dashboard - Arkonox</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arkonox Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/dashboard.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- 🧠 Top Bar -->
-  <header class="top-bar">
-    <div class="logo">🛡️ Arkonox</div>
-    <div class="clock" id="clock">00:00:00</div>
-    <div class="profile-icon" onclick="toggleProfile()">👤</div>
-  </header>
 
-  <!-- 📱 Profile Popup -->
-  <div class="profile-menu" id="profileMenu">
-    <ul>
-      <li>👤 View Profile</li>
-      <li>📊 Task Progress</li>
-      <li>📖 Knight Guide</li>
-      <li>🗓️ Earth vs Arkonox Calendar</li>
-      <li>📢 Admin Updates</li>
-      <li>🌐 Follow Us</li>
-    </ul>
+  <div class="header">
+    <h1>🏰 Arkonox</h1>
+    <span id="time">00:00:00</span>
+    <i id="profileIcon" class="fas fa-user-circle"></i>
   </div>
 
-  <!-- ⚔️ Main Home Area -->
-  <main class="dashboard-main">
-    <h2>Welcome, <span id="knightNameDisplay"></span></h2>
+  <div id="welcomeText">Welcome, Knight</div>
 
-    <section class="cards">
-      <div class="card">📅 Month Progress</div>
-      <div class="card">📝 Daily Notes</div>
-      <div class="card">⚔️ Sword Chest</div>
-      <div class="card">🎮 Quiz Game</div>
-      <div class="card">🤖 AI Chat</div>
-    </section>
-  </main>
+  <div class="card-grid">
+    <div class="card">📅 Month Progress</div>
+    <div class="card">📝 Daily Notes</div>
+    <div class="card">⚔️ Sword Chest</div>
+    <div class="card">🎮 Quiz Game</div>
+    <div class="card">🤖 AI Chat</div>
+  </div>
 
-  <!-- 🧭 Bottom Navigation -->
-  <nav class="bottom-nav">
-    <div class="nav-item">🏠 Home</div>
-    <div class="nav-item">⚔️ Sword</div>
-    <div class="nav-item">📝 Notes</div>
-    <div class="nav-item">🎮 Games</div>
-  </nav>
+  <div class="bottom-nav">
+    <div class="nav-item">🏠<br><small>Home</small></div>
+    <div class="nav-item">⚔️<br><small>Chest</small></div>
+    <div class="nav-item">📝<br><small>Notes</small></div>
+    <div class="nav-item">🎮<br><small>Games</small></div>
+  </div>
 
-  <script src="js/dashboard.js"></script>
 </body>
 </html>

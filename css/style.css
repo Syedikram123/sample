@@ -105,3 +105,125 @@ input[type="text"] {
 #knightCode {
   margin-bottom: 1.5rem;
 }
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #0ff;
+  min-height: 100vh;
+  padding-bottom: 70px; /* space for bottom nav */
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background: #111;
+  box-shadow: 0 0 10px #0ff;
+}
+
+.header h1 {
+  font-size: 1.2rem;
+  color: #0ff;
+}
+
+#time {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #0ff;
+}
+
+/* Welcome Text */
+#welcomeText {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0ff;
+  text-shadow: 0 0 8px #0ff;
+}
+
+/* Main Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.card {
+  background: #111;
+  padding: 1.2rem;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.1rem;
+  box-shadow: 0 0 12px #0ff;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background: #222;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.8rem 0;
+  box-shadow: 0 0 12px #0ff;
+  z-index: 10;
+}
+
+.nav-item {
+  font-size: 1.5rem;
+  color: #0ff;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover {
+  transform: scale(1.2);
+}
+
+/* Profile Icon (Top Right) */
+#profileIcon {
+  font-size: 1.4rem;
+  color: #0ff;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width: 500px) {
+  .card {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-item {
+    font-size: 1.3rem;
+  }
+
+  .header h1 {
+    font-size: 1rem;
+  }
+
+  #welcomeText {
+    font-size: 1.2rem;
+  }
+}
