@@ -1,0 +1,52 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Knight Dashboard - Arkonox</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 🧠 Top Bar -->
+  <header class="top-bar">
+    <div class="logo">🛡️ Arkonox</div>
+    <div class="clock" id="clock">00:00:00</div>
+    <div class="profile-icon" onclick="toggleProfile()">👤</div>
+  </header>
+
+  <!-- 📱 Profile Popup -->
+  <div class="profile-menu" id="profileMenu">
+    <ul>
+      <li>👤 View Profile</li>
+      <li>📊 Task Progress</li>
+      <li>📖 Knight Guide</li>
+      <li>🗓️ Earth vs Arkonox Calendar</li>
+      <li>📢 Admin Updates</li>
+      <li>🌐 Follow Us</li>
+    </ul>
+  </div>
+
+  <!-- ⚔️ Main Home Area -->
+  <main class="dashboard-main">
+    <h2>Welcome, <span id="knightNameDisplay"></span></h2>
+
+    <section class="cards">
+      <div class="card">📅 Month Progress</div>
+      <div class="card">📝 Daily Notes</div>
+      <div class="card">⚔️ Sword Chest</div>
+      <div class="card">🎮 Quiz Game</div>
+      <div class="card">🤖 AI Chat</div>
+    </section>
+  </main>
+
+  <!-- 🧭 Bottom Navigation -->
+  <nav class="bottom-nav">
+    <div class="nav-item">🏠 Home</div>
+    <div class="nav-item">📈 Stats</div>
+    <div class="nav-item">📝 Notes</div>
+    <div class="nav-item">🎮 Games</div>
+  </nav>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
