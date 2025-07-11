@@ -23,10 +23,14 @@ if (
 
 // ✅ Display Knight Name in Dashboard Header
 document.addEventListener("DOMContentLoaded", () => {
-  const nameDisplay = document.getElementById("knightNameDisplay");
-  if (nameDisplay) {
-    nameDisplay.innerText = `${capitalize(knightName)}`;
+  const knightName = localStorage.getItem("knightName");
+  const knightNameSpan = document.getElementById("knightNameSpan");
+
+  if (knightName && knightNameSpan) {
+    knightNameSpan.innerText = capitalize(knightName);
   }
+
+
 
   // ✅ Load saved progress if exists
   const progressKey = `progress_${knightName}`;
