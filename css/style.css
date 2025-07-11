@@ -48,9 +48,10 @@ input[type="text"] {
   font-size: 1rem;
   text-align: center;
 }
+
 #enterBtn {
-  font-size: 1.5rem;
-  padding: 1rem 2.5rem;
+  font-size: 2rem;
+  padding: 1.2rem 3rem;
   font-weight: 700;
   letter-spacing: 1px;
   border-radius: 12px;
@@ -68,12 +69,13 @@ input[type="text"] {
 
 
 #pageTitle {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 3rem;
+  font-weight: 800;
   color: #fff;
-  text-shadow: 0 0 10px #00ffff;
-  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px #00ffff;
+  margin-bottom: 2rem;
 }
+
 
 @media screen and (min-width: 768px) {
   #pageTitle {
@@ -99,4 +101,7 @@ input[type="text"] {
 @keyframes flicker {
   from { opacity: 1; }
   to { opacity: 0.7; }
+}
+#knightCode {
+  margin-bottom: 1.5rem;
 }
