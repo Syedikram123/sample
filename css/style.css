@@ -227,3 +227,10 @@ body {
     font-size: 1.2rem;
   }
 }
+#knightNameDisplay {
+  color: #0ff;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 1.2rem;
+  text-shadow: 0 0 10px #0ff;
+}
