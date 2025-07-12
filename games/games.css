@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   background: #000;
   color: #00ffff;
   font-family: 'Segoe UI', sans-serif;
@@ -7,51 +8,48 @@ body {
 }
 
 .games-header {
-  font-size: 28px;
-  margin-top: 30px;
-  color: #00ffff;
-  text-shadow: 0 0 10px #00ffff88;
+  font-size: 32px;
+  margin: 30px 0 20px;
+  text-shadow: 0 0 12px #00ffff99;
 }
 
 .tab-buttons {
-  margin: 30px auto;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   max-width: 95%;
+  margin: auto;
+  padding: 10px 20px 40px;
 }
 
 .tab-buttons button {
-  flex: 1 1 40%;
-  max-width: 160px;
-  height: 160px;
   background: #111;
   border: none;
-  border-radius: 16px;
-  box-shadow: 0 0 15px #00ffff88;
+  border-radius: 18px;
+  height: 180px;
+  width: 100%;
   color: white;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s ease;
+  box-shadow: 0 0 14px #00ffff55;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .tab-buttons button:hover {
-  background: #1c1c1c;
-  box-shadow: 0 0 25px #00ffffaa;
+  background: #1d1d1d;
+  box-shadow: 0 0 20px #00ffff99;
 }
 
 .tab-buttons .icon {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 50px;
+  margin-bottom: 12px;
 }
 
 .tab-buttons .label {
-  font-size: 20px;
+  font-size: 22px;
 }
-
