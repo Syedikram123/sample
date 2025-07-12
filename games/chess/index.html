@@ -12,52 +12,56 @@
     }
   </script>
 
-  <!-- ✅ Modern, jQuery-free Chessboard.js -->
+  <!-- ✅ Modern Chessboard.js (jQuery-free) -->
   <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
   <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 
-  <!-- ✅ Chess engine logic -->
+  <!-- ✅ Chess.js logic -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
 
-  <!-- ✅ Your styles -->
+  <!-- ✅ Your local styles -->
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- ✅ Optional internal styling -->
   <style>
     body {
       background: #0c0c0c;
       color: white;
-      font-family: Arial;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
     }
     h2 {
       margin-top: 30px;
-      font-size: 24px;
+      font-size: 26px;
     }
     .mode-buttons {
       margin: 20px;
     }
     .mode-buttons button {
       margin: 8px;
-      padding: 12px 20px;
+      padding: 12px 22px;
       font-size: 16px;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       background: #1e90ff;
       color: white;
       cursor: pointer;
+      transition: 0.3s;
     }
     .mode-buttons button:hover {
-      background: #1560c4;
+      background: #125bb7;
     }
     #board {
-      margin: 20px auto;
+      margin: 30px auto;
+      width: 400px;
+      max-width: 90vw;
     }
   </style>
 </head>
 
 <body>
 
-  <h2>♟️ Choose Mode</h2>
+  <h2>♟️ Choose Game Mode</h2>
 
   <div class="mode-buttons">
     <button onclick="startBot('easy')">Play with Bot (Easy)</button>
@@ -66,9 +70,9 @@
     <button onclick="startTwoPlayer()">Two Player</button>
   </div>
 
-  <div id="board" style="width: 400px;"></div>
+  <div id="board"></div>
 
-  <!-- ✅ Your scripts -->
+  <!-- ✅ Scripts should load after board is defined -->
   <script src="chess.js"></script>
   <script src="bot.js"></script>
 
