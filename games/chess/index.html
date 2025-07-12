@@ -1,22 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-  // Check if knightCode exists
-  const knightCode = localStorage.getItem('knightCode');
-  if (!knightCode) {
-    // Not logged in, redirect to login
-    window.location.href = "../login.html";
-  }
-</script>
   <meta charset="UTF-8" />
   <title>Arkonox Chess</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css" />
+
+  <!-- 🔐 Knight Login Check -->
+  <script>
+    const knightCode = localStorage.getItem('knightCode');
+    if (!knightCode) {
+      window.location.href = "../login.html";
+    }
+  </script>
+
+  <!-- ✅ Modern, jQuery-free Chessboard.js -->
+  <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+  <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+
+  <!-- ✅ Chess engine logic -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
+
+  <!-- ✅ Your styles -->
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body {
+      background: #0c0c0c;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 30px;
+      font-size: 24px;
+    }
+    .mode-buttons {
+      margin: 20px;
+    }
+    .mode-buttons button {
+      margin: 8px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background: #1e90ff;
+      color: white;
+      cursor: pointer;
+    }
+    .mode-buttons button:hover {
+      background: #1560c4;
+    }
+    #board {
+      margin: 20px auto;
+    }
+  </style>
 </head>
+
 <body>
 
   <h2>♟️ Choose Mode</h2>
+
   <div class="mode-buttons">
     <button onclick="startBot('easy')">Play with Bot (Easy)</button>
     <button onclick="startBot('medium')">Play with Bot (Medium)</button>
@@ -24,10 +66,9 @@
     <button onclick="startTwoPlayer()">Two Player</button>
   </div>
 
-  <div id="board" style="width: 400px; margin: 20px auto;"></div>
+  <div id="board" style="width: 400px;"></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
+  <!-- ✅ Your scripts -->
   <script src="chess.js"></script>
   <script src="bot.js"></script>
 

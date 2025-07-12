@@ -1,93 +1,105 @@
-function getBotMove(difficulty, game) {
-  const moves = game.moves({ verbose: true });
+function getBotMove(difficulty, gameInstance) {
+  const possibleMoves = gameInstance.moves();
+
+  if (gameInstance.game_over() || possibleMoves.length === 0) return null;
 
   if (difficulty === 'easy') {
-    return moves[Math.floor(Math.random() * moves.length)];
+    return randomMove(possibleMoves);
   }
 
   if (difficulty === 'medium') {
-    // Capture if available
-    const captures = moves.filter(m => m.captured);
-    if (captures.length > 0) {
-      return captures[Math.floor(Math.random() * captures.length)];
-    }
-    return moves[Math.floor(Math.random() * moves.length)];
+    return bestCaptureMove(gameInstance) || randomMove(possibleMoves);
   }
 
   if (difficulty === 'hard') {
-    return minimaxRoot(2, game, true); // depth 2
+    return minimaxRoot(2, gameInstance, true);
   }
 
-  return null;
+  return randomMove(possibleMoves);
 }
 
-// Hard bot logic – simple minimax
-function minimaxRoot(depth, game, isMaximizingPlayer) {
+function randomMove(moves) {
+  const index = Math.floor(Math.random() * moves.length);
+  return moves[index];
+}
+
+function bestCaptureMove(game) {
   const moves = game.moves({ verbose: true });
+  const captureMoves = moves.filter(move => move.captured);
+  return captureMoves.length > 0 ? captureMoves[Math.floor(Math.random() * captureMoves.length)].san : null;
+}
+
+// Basic Minimax for 'hard' mode
+function minimaxRoot(depth, game, isMaximizing) {
+  const moves = game.moves();
   let bestMove = null;
-  let bestValue = -Infinity;
+  let bestValue = -9999;
 
   for (let i = 0; i < moves.length; i++) {
     const move = moves[i];
     game.move(move);
-    const value = minimax(depth - 1, game, -Infinity, Infinity, false);
+    const value = minimax(depth - 1, game, -10000, 10000, !isMaximizing);
     game.undo();
-    if (value > bestValue) {
+
+    if (value >= bestValue) {
       bestValue = value;
       bestMove = move;
     }
   }
+
   return bestMove;
 }
 
-function minimax(depth, game, alpha, beta, isMax) {
-  if (depth === 0) {
-    return evaluateBoard(game.board());
-  }
+function minimax(depth, game, alpha, beta, isMaximizingPlayer) {
+  if (depth === 0) return -evaluateBoard(game);
 
-  const moves = game.moves({ verbose: true });
+  const moves = game.moves();
 
-  if (isMax) {
-    let best = -Infinity;
-    for (const move of moves) {
+  if (isMaximizingPlayer) {
+    let maxEval = -Infinity;
+    for (let move of moves) {
       game.move(move);
-      best = Math.max(best, minimax(depth - 1, game, alpha, beta, false));
+      const evalScore = minimax(depth - 1, game, alpha, beta, false);
       game.undo();
-      alpha = Math.max(alpha, best);
+      maxEval = Math.max(maxEval, evalScore);
+      alpha = Math.max(alpha, evalScore);
       if (beta <= alpha) break;
     }
-    return best;
+    return maxEval;
   } else {
-    let best = Infinity;
-    for (const move of moves) {
+    let minEval = Infinity;
+    for (let move of moves) {
       game.move(move);
-      best = Math.min(best, minimax(depth - 1, game, alpha, beta, true));
+      const evalScore = minimax(depth - 1, game, alpha, beta, true);
       game.undo();
-      beta = Math.min(beta, best);
+      minEval = Math.min(minEval, evalScore);
+      beta = Math.min(beta, evalScore);
       if (beta <= alpha) break;
     }
-    return best;
+    return minEval;
   }
 }
 
-function evaluateBoard(board) {
-  const pieceValue = {
+function evaluateBoard(game) {
+  const fen = game.fen();
+  const board = fen.split(' ')[0];
+  const pieceValues = {
     p: 1,
     n: 3,
     b: 3,
     r: 5,
     q: 9,
-    k: 0,
+    k: 0
   };
 
-  let total = 0;
-  for (let row of board) {
-    for (let piece of row) {
-      if (piece) {
-        const val = pieceValue[piece.type];
-        total += piece.color === 'w' ? val : -val;
-      }
-    }
+  let score = 0;
+  for (let char of board) {
+    if (char >= '1' && char <= '8') continue;
+    const isUpper = char === char.toUpperCase();
+    const piece = char.toLowerCase();
+    const value = pieceValues[piece] || 0;
+    score += isUpper ? value : -value;
   }
-  return total;
+
+  return score;
 }
