@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Games | Arkonox</title>
+  <style>
+    .tab-btns {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .tab-btns button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+    .game-frame {
+      width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">🎮 Games Section</h1>
+
+  <div class="tab-btns">
+    <button onclick="loadGame('chess')">♟️ Chess</button>
+    <button onclick="loadGame('quiz')">🧠 Quiz</button>
+  </div>
+
+  <iframe id="gameFrame" class="game-frame"></iframe>
+
+  <script>
+    function loadGame(game) {
+      const iframe = document.getElementById('gameFrame');
+      if (game === 'chess') {
+        iframe.src = 'chess/index.html';
+      } else if (game === 'quiz') {
+        iframe.src = 'quiz/index.html';
+      }
+    }
+  </script>
+</body>
+</html>
