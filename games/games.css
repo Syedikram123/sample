@@ -82,3 +82,35 @@ body {
     font-size: 24px;
   }
 }
+
+.tab-buttons button {
+  width: 140px;
+  height: 140px;
+  background: #111;
+  border-radius: 14px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px #00ffff55;
+}
+
+.tab-buttons button:hover {
+  background-color: #1e1e1e;
+  box-shadow: 0 0 15px #00ffffaa;
+}
+
+.tab-buttons .icon {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.tab-buttons .label {
+  font-size: 18px;
+}
