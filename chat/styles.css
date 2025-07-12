@@ -1,68 +1,119 @@
+/* Reset and base styling */
 body {
   margin: 0;
+  padding: 0;
   background: #000;
-  font-family: 'Segoe UI', sans-serif;
   color: #00ffff;
+  font-family: 'Segoe UI', sans-serif;
 }
 
+/* Header */
 .chat-header {
   text-align: center;
-  font-size: 28px;
+  font-size: 32px;
   margin: 20px 0;
-  text-shadow: 0 0 10px #00ffff;
+  text-shadow: 0 0 12px #00ffffaa;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
+/* Chat container */
 .chat-box {
   max-width: 90%;
   height: 65vh;
   margin: auto;
   padding: 20px;
   background: #111;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow-y: auto;
-  box-shadow: 0 0 10px #00ffff44;
+  box-shadow: 0 0 12px #00ffff55;
+  display: flex;
+  flex-direction: column;
 }
 
-.bot-msg, .user-msg {
-  margin: 10px 0;
-  padding: 12px;
-  border-radius: 10px;
-  max-width: 80%;
-}
-
+/* Bot messages */
 .bot-msg {
-  background: #222;
+  background: #1a1a1a;
   color: #00ffff;
   text-align: left;
+  align-self: flex-start;
+  margin: 12px 0;
+  padding: 14px;
+  border-radius: 12px;
+  max-width: 75%;
+  font-size: 16px;
+  position: relative;
+  line-height: 1.5;
 }
 
+/* User messages */
 .user-msg {
   background: #1560c4;
   color: white;
-  margin-left: auto;
   text-align: right;
+  align-self: flex-end;
+  margin: 12px 0;
+  padding: 14px;
+  border-radius: 12px;
+  max-width: 75%;
+  font-size: 16px;
+  position: relative;
+  line-height: 1.5;
 }
 
+/* Timestamps below each message */
+.time-stamp {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 8px;
+  display: block;
+}
+
+/* Input area */
 .input-area {
   display: flex;
   justify-content: center;
   margin: 20px;
+  gap: 8px;
+  padding: 0 10px;
 }
 
+/* Input box */
 input[type="text"] {
   width: 70%;
-  padding: 12px;
+  padding: 14px;
   border: none;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
   font-size: 16px;
+  background: #222;
+  color: white;
+  outline: none;
 }
 
+/* Send button */
 button {
-  padding: 12px 20px;
+  padding: 14px 22px;
   border: none;
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px;
   background-color: #1e90ff;
   color: white;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 0 8px #1e90ff88;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #1560c4;
+  transform: scale(1.05);
+}
+
+/* Scrollbar customization (optional) */
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background: #00ffff88;
+  border-radius: 4px;
 }
