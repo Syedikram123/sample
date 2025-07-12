@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Arkonox Chess</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Play Chess - Arkonox</title>
 
-  <!-- 🔐 Knight Login Check -->
+  <!-- 🔐 Knight Code Check -->
   <script>
     const knightCode = localStorage.getItem('knightCode');
     if (!knightCode) {
@@ -13,69 +12,34 @@
     }
   </script>
 
-  <!-- ✅ Modern Chessboard.js (jQuery-free) -->
-  <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
-  <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
-
-  <!-- ✅ Chess.js logic -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
-
-  <!-- ✅ Your local styles -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- ✅ Optional internal styling -->
   <style>
     body {
-      background: #0c0c0c;
+      margin: 0;
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       color: white;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
     }
     h2 {
-      margin-top: 30px;
-      font-size: 26px;
+      margin-top: 20px;
+      font-size: 24px;
     }
-    .mode-buttons {
-      margin: 20px;
-    }
-    .mode-buttons button {
-      margin: 8px;
-      padding: 12px 22px;
-      font-size: 16px;
+    iframe {
+      margin-top: 20px;
       border: none;
-      border-radius: 8px;
-      background: #1e90ff;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .mode-buttons button:hover {
-      background: #125bb7;
-    }
-    #board {
-      margin: 30px auto;
-      width: 400px;
-      max-width: 90vw;
+      width: 95vw;
+      height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #1e90ff55;
     }
   </style>
 </head>
-
 <body>
 
-  <h2>♟️ Choose Game Mode</h2>
+  <h2>♟️ Arkonox Chess (vs Computer)</h2>
 
-  <div class="mode-buttons">
-    <button onclick="startBot('easy')">Play with Bot (Easy)</button>
-    <button onclick="startBot('medium')">Play with Bot (Medium)</button>
-    <button onclick="startBot('hard')">Play with Bot (Hard)</button>
-    <button onclick="startTwoPlayer()">Two Player</button>
-  </div>
-
-  <div id="board"></div>
-
-  <!-- ✅ Scripts should load after board is defined -->
-  <script src="chess.js"></script>
-  <script src="bot.js"></script>
+  <iframe src="https://www.chess.com/play/computer" allowfullscreen></iframe>
 
 </body>
 </html>
