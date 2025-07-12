@@ -1,116 +1,57 @@
-/* -----------------------------
-   Arkonox Games Section Styling
------------------------------- */
-
 body {
   margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0b0b0b;
-  color: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Games Section Header */
-.games-header {
-  margin-top: 30px;
-  font-size: 28px;
-  font-weight: bold;
-  text-align: center;
+  background: #000;
   color: #00ffff;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
 }
 
-/* Tab Buttons (Chess / Quiz) */
-.tab-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.tab-buttons {
+.games-header {
+  font-size: 28px;
   margin-top: 30px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff88;
+}
+
+.tab-buttons {
+  margin: 30px auto;
   display: flex;
   justify-content: center;
+  gap: 30px;
   flex-wrap: wrap;
-  gap: 20px;
-}
-
-.tab-buttons button:hover {
-  background-color: #222;
-  box-shadow: 0 0 20px #00ffff99;
-}
-
-
-/* Mode Buttons (inside Chess or Quiz) */
-.mode-buttons {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.mode-buttons button {
-  padding: 12px 20px;
-  font-size: 15px;
-  border: none;
-  border-radius: 6px;
-  background: #1e90ff;
-  color: white;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.mode-buttons button:hover {
-  background: #1560c4;
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .tab-buttons button,
-  .mode-buttons button {
-    font-size: 14px;
-    padding: 10px 16px;
-  }
-
-  .games-header {
-    font-size: 24px;
-  }
+  max-width: 95%;
 }
 
 .tab-buttons button {
-  width: 140px;
-  height: 140px;
+  flex: 1 1 40%;
+  max-width: 160px;
+  height: 160px;
   background: #111;
-  border-radius: 14px;
   border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: bold;
+  border-radius: 16px;
+  box-shadow: 0 0 15px #00ffff88;
   color: white;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.3s ease;
-  box-shadow: 0 0 10px #00ffff55;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .tab-buttons button:hover {
-  background-color: #1e1e1e;
-  box-shadow: 0 0 15px #00ffffaa;
+  background: #1c1c1c;
+  box-shadow: 0 0 25px #00ffffaa;
 }
 
 .tab-buttons .icon {
   font-size: 40px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .tab-buttons .label {
-  font-size: 18px;
+  font-size: 20px;
 }
+
