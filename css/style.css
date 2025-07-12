@@ -4,6 +4,13 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+.game-frame {
+  width: 100%;
+  height: 600px;
+  border: none;
+  background: #0c0c0c;
+}
+
 
 body, html {
   height: 100vh;
