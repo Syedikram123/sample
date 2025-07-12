@@ -1,74 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-  // Check if knightCode exists
-  const knightCode = localStorage.getItem('knightCode');
-  if (!knightCode) {
-    // Not logged in, redirect to login
-    window.location.href = "../login.html";
-  }
-</script>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Games | Arkonox</title>
-  <style>
-    .tab-btns {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
+  
+  <!-- Knight Login Check -->
+  <script>
+    const knightCode = localStorage.getItem('knightCode');
+    if (!knightCode) {
+      window.location.href = "../login.html";
     }
+  </script>
 
-body {
-  background: #0c0c0c;
-  color: white;
-  font-family: 'Arial';
-}
-    .tab-btns button {
-      margin: 0 10px;
-      padding: 10px 20px;
-      font-weight: bold;
-    }
-    .game-frame {
-      width: 100%;
-      height: 800px;
-      border: none;
-    }
-  </style>
+  <!-- Games Page Styles -->
+  <link rel="stylesheet" href="games.css">
 </head>
 <body>
-  <h1 style="text-align: center;">🎮 Games Section</h1>
+  <h2 class="games-header">🎮 Games Section</h2>
 
-  <div class="tab-btns">
-    <button onclick="loadGame('chess')">♟️ Chess</button>
-    <button onclick="loadGame('quiz')">🧠 Quiz</button>
+  <div class="tab-buttons">
+    <button onclick="openChess()">♟️ Chess</button>
+    <button onclick="openQuiz()">🧠 Quiz</button>
   </div>
-  <style>
-.tab-btns button {
-  padding: 15px 30px;
-  font-size: 18px;
-  border-radius: 10px;
-  margin: 10px;
-  background: #222;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-.tab-btns button:hover {
-  background: #444;
-}
-</style>
-
-
-  <iframe id="gameFrame" class="game-frame" allowfullscreen></iframe>
 
   <script>
-    function loadGame(game) {
-      const iframe = document.getElementById('gameFrame');
-      if (game === 'chess') {
-        iframe.src = 'chess/index.html';
-      } else if (game === 'quiz') {
-        iframe.src = 'quiz/index.html';
-      }
+    function openChess() {
+      window.location.href = "chess/index.html";
+    }
+
+    function openQuiz() {
+      window.location.href = "quiz/index.html";
     }
   </script>
 </body>
