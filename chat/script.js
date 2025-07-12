@@ -1,7 +1,18 @@
+// Load knight name (from localStorage)
+const knightCode = localStorage.getItem('knightCode') || 'Knight';
+
+// Greet on load
+window.onload = () => {
+  const chatBox = document.getElementById('chatBox');
+  const welcome = document.createElement('div');
+  welcome.className = 'bot-msg';
+  welcome.innerText = `🧠 Assalamu Alaikum, ${knightCode}!\nWhat’s in your mind today?`;
+  chatBox.appendChild(welcome);
+};
+
 function sendMessage() {
   const input = document.getElementById('userInput');
   const chatBox = document.getElementById('chatBox');
-
   const userText = input.value.trim();
   if (!userText) return;
 
@@ -11,7 +22,7 @@ function sendMessage() {
   userMsg.innerText = userText;
   chatBox.appendChild(userMsg);
 
-  // Dummy bot reply
+  // Add bot reply
   const botMsg = document.createElement('div');
   botMsg.className = 'bot-msg';
   botMsg.innerText = getBotResponse(userText);
@@ -21,10 +32,24 @@ function sendMessage() {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Simple reply system (for now)
 function getBotResponse(input) {
   const text = input.toLowerCase();
-  if (text.includes('motivate')) return '🧠 Keep going! Even warriors rest, but never quit.';
-  if (text.includes('goal')) return '🎯 Your goal should scare and excite you at the same time.';
-  return "🤖 I'm still learning... Ask me about growth, Islam, or Arkonox!";
+
+  if (text.includes("motivate") || text.includes("demotivate")) {
+    return "⚔️ Even lions feel tired — but they never quit. You were made for more, stay strong.";
+  }
+
+  if (text.includes("islam") || text.includes("prayer")) {
+    return "🕌 Don’t forget, the real strength comes from salah and sabr. Reconnect with your Creator.";
+  }
+
+  if (text.includes("goal") || text.includes("purpose")) {
+    return "🎯 Your goal must scare you a little and excite you a lot. Keep aiming high.";
+  }
+
+  if (text.includes("arkonox") || text.includes("knight")) {
+    return "🌌 Arkonox awaits your rise. Remember: You are being trained for greatness.";
+  }
+
+  return "🤖 I'm still learning from you daily. Share anything and I’ll try to help!";
 }
