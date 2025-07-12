@@ -4,7 +4,10 @@
     <script>
   const knightName = localStorage.getItem("knightName");
   const knightCode = localStorage.getItem("knightCode");
-
+    if (!knightCode) {
+    // Not logged in, redirect to login
+    window.location.href = "../login.html";
+  }
   const allowedKnights = {
     apexion: "175025",
     velox: "2275025",
@@ -69,6 +72,11 @@
     <div class="nav-item">🎮<br><small>Games</small></div>
   </a>
   </div>
+
+  a {
+  text-decoration: none;
+  color: inherit;
+}
 
 </body>
 </html>

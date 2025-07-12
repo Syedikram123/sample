@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+  // Check if knightCode exists
+  const knightCode = localStorage.getItem('knightCode');
+  if (!knightCode) {
+    // Not logged in, redirect to login
+    window.location.href = "../login.html";
+  }
+</script>
   <meta charset="UTF-8" />
   <title>Arkonox Chess</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css" />
