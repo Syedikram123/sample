@@ -32,22 +32,19 @@ body {
   flex-wrap: wrap;
 }
 
-.tab-buttons button {
-  padding: 12px 24px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  background-color: #1a1a1a;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 0 8px #00ffff33;
+.tab-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .tab-buttons button:hover {
-  background-color: #333;
-  box-shadow: 0 0 15px #00ffff99;
+  background-color: #222;
+  box-shadow: 0 0 20px #00ffff99;
 }
+
 
 /* Mode Buttons (inside Chess or Quiz) */
 .mode-buttons {
